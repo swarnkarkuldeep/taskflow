@@ -96,56 +96,60 @@ const TaskDashboard: React.FC<TaskDashboardProps> = ({ user, onLogout, darkMode,
   };
 
   return (
-    <div className="min-h-screen p-6 relative">
+    <div className="min-h-screen p-3 sm:p-4 md:p-6 relative">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className={`backdrop-blur-xl ${darkMode ? 'bg-white/10' : 'bg-white/30'} rounded-3xl shadow-2xl p-8 mb-8 border ${darkMode ? 'border-white/20' : 'border-white/40'} animate-fade-in ${darkMode ? 'hover:bg-white/15' : 'hover:bg-white/40'} transition-all duration-300`}>
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="flex items-center gap-3 mb-2">
-                <Sparkles className={`w-8 h-8 ${darkMode ? 'text-purple-300' : 'text-blue-500'} animate-pulse transition-colors duration-500`} />
-                <h1 className={`text-4xl font-bold bg-gradient-to-r ${darkMode ? 'from-white via-purple-200 to-blue-200' : 'from-slate-800 via-blue-600 to-indigo-700'} bg-clip-text text-transparent transition-all duration-500`}>
-                  Welcome back, {user}!
+        <div className={`backdrop-blur-xl ${darkMode ? 'bg-white/10' : 'bg-white/30'} rounded-3xl shadow-2xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 border ${darkMode ? 'border-white/20' : 'border-white/40'} animate-fade-in ${darkMode ? 'hover:bg-white/15' : 'hover:bg-white/40'} transition-all duration-300`}>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                <Sparkles className={`w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0 ${darkMode ? 'text-purple-300' : 'text-blue-500'} animate-pulse transition-colors duration-500`} />
+                <h1 className={`text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r ${darkMode ? 'from-white via-purple-200 to-blue-200' : 'from-slate-800 via-blue-600 to-indigo-700'} bg-clip-text text-transparent transition-all duration-500 truncate`}>
+                  Welcome, {user}!
                 </h1>
               </div>
-              <p className={`${darkMode ? 'text-white/80' : 'text-slate-700/90'} text-lg font-light transition-colors duration-500`}>
+              <p className={`${darkMode ? 'text-white/80' : 'text-slate-700/90'} text-sm sm:text-base md:text-lg font-light transition-colors duration-500`}>
                 {taskCounts.pending > 0 
                   ? `You have ${taskCounts.pending} pending task${taskCounts.pending === 1 ? '' : 's'} ✨`
                   : 'All caught up! Great work! 🎉✨'
                 }
               </p>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto mt-4 sm:mt-0">
               <button
                 onClick={onToggleDarkMode}
-                className={`flex items-center gap-2 px-4 py-3 backdrop-blur-sm ${darkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-white/40 hover:bg-white/60'} rounded-2xl transition-all duration-300 border ${darkMode ? 'border-white/20' : 'border-white/40'} ${darkMode ? 'hover:border-white/30' : 'hover:border-white/60'} hover:scale-105 transform`}
+                className={`flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2 sm:py-3 backdrop-blur-sm ${darkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-white/40 hover:bg-white/60'} rounded-2xl transition-all duration-300 border ${darkMode ? 'border-white/20' : 'border-white/40'} ${darkMode ? 'hover:border-white/30' : 'hover:border-white/60'} hover:scale-105 transform flex-1 sm:flex-none`}
+                aria-label="Toggle dark mode"
               >
-                {darkMode ? <Sun className="w-5 h-5 text-yellow-300" /> : <Moon className="w-5 h-5 text-slate-600" />}
+                {darkMode ? <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-300" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-slate-600" />}
+                <span className="sm:sr-only">{darkMode ? 'Light' : 'Dark'} mode</span>
               </button>
               <button
                 onClick={handleLogout}
-                className={`flex items-center gap-2 px-6 py-3 ${darkMode ? 'text-white/80 hover:text-white' : 'text-slate-700/80 hover:text-slate-800'} backdrop-blur-sm ${darkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-white/40 hover:bg-white/60'} rounded-2xl transition-all duration-300 border ${darkMode ? 'border-white/20' : 'border-white/40'} ${darkMode ? 'hover:border-white/30' : 'hover:border-white/60'} font-medium hover:scale-105 transform`}
+                className={`flex items-center justify-center sm:justify-start gap-2 px-4 sm:px-6 py-2 sm:py-3 ${darkMode ? 'text-white/80 hover:text-white' : 'text-slate-700/80 hover:text-slate-800'} backdrop-blur-sm ${darkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-white/40 hover:bg-white/60'} rounded-2xl transition-all duration-300 border ${darkMode ? 'border-white/20' : 'border-white/40'} ${darkMode ? 'hover:border-white/30' : 'hover:border-white/60'} font-medium hover:scale-105 transform flex-1 sm:flex-none`}
               >
-                <LogOut className="w-5 h-5" />
-                Logout
+                <LogOut className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-sm sm:text-base">Logout</span>
               </button>
             </div>
           </div>
         </div>
 
         {/* Search Bar */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} darkMode={darkMode} />
         </div>
 
         {/* Task Filters */}
-        <div className="mb-8">
-          <TaskFilter 
-            currentFilter={filter} 
-            onFilterChange={setFilter}
-            taskCounts={taskCounts}
-            darkMode={darkMode}
-          />
+        <div className="mb-6 sm:mb-8 overflow-x-auto">
+          <div className="w-max min-w-full">
+            <TaskFilter 
+              currentFilter={filter} 
+              onFilterChange={setFilter}
+              taskCounts={taskCounts}
+              darkMode={darkMode}
+            />
+          </div>
         </div>
 
         {/* Add Task Button */}
