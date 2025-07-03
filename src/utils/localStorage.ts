@@ -24,14 +24,7 @@ export const getTasks = (): Task[] => {
   const tasksJson = localStorage.getItem(TASKS_KEY);
   if (tasksJson) {
     try {
-      const parsedTasks = JSON.parse(tasksJson);
-      // Migrate old tasks to new format
-      return parsedTasks.map((task: any) => ({
-        ...task,
-        priority: task.priority || 'medium',
-        dueDate: task.dueDate || undefined,
-        category: task.category || undefined,
-      }));
+      return JSON.parse(tasksJson) || [];
     } catch (error) {
       console.error('Error parsing tasks from localStorage:', error);
       return [];
@@ -40,6 +33,42 @@ export const getTasks = (): Task[] => {
   return [];
 };
 
-export const clearTasks = (): void => {
+export const getUserTasks = (userId: string): Task[] => {
+  const allTasks = getTasks();
+  return allTasks.filter(task => task.userId === userId).map(task => ({
+    ...task,
+    priority: task.priority || 'medium',
+    dueDate: task.dueDate || undefined,
+    category: task.category || undefined,
+  }));
+};
+
+export const saveUserTask = (task: Task, userId: string): void => {
+  const tasks = getTasks();
+  const existingTaskIndex = tasks.findIndex(t => t.id === task.id);
+  const taskWithUser = { ...task, userId };
+  
+  if (existingTaskIndex >= 0) {
+    tasks[existingTaskIndex] = taskWithUser;
+  } else {
+    tasks.push(taskWithUser);
+  }
+  
+  saveTasks(tasks);
+};
+
+export const deleteUserTask = (taskId: string, userId: string): void => {
+  const tasks = getTasks();
+  const filteredTasks = tasks.filter(task => !(task.id === taskId && task.userId === userId));
+  saveTasks(filteredTasks);
+};
+
+export const clearUserTasks = (userId: string): void => {
+  const tasks = getTasks();
+  const filteredTasks = tasks.filter(task => task.userId !== userId);
+  saveTasks(filteredTasks);
+};
+
+export const clearAllTasks = (): void => {
   localStorage.removeItem(TASKS_KEY);
 };

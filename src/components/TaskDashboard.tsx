@@ -5,7 +5,7 @@ import TaskList from './TaskList';
 import TaskFilter from './TaskFilter';
 import SearchBar from './SearchBar';
 import { Task, TaskFilter as FilterType } from '../types/task';
-import { getTasks, saveTasks, clearUser } from '../utils/localStorage';
+import { getUserTasks, saveUserTask, deleteUserTask, clearUser, clearUserTasks } from '../utils/localStorage';
 
 interface TaskDashboardProps {
   user: string;
@@ -22,13 +22,9 @@ const TaskDashboard: React.FC<TaskDashboardProps> = ({ user, onLogout, darkMode,
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
   useEffect(() => {
-    const savedTasks = getTasks();
-    setTasks(savedTasks);
-  }, []);
-
-  useEffect(() => {
-    saveTasks(tasks);
-  }, [tasks]);
+    const userTasks = getUserTasks(user);
+    setTasks(userTasks);
+  }, [user]);
 
   const handleLogout = () => {
     clearUser();
@@ -45,26 +41,39 @@ const TaskDashboard: React.FC<TaskDashboardProps> = ({ user, onLogout, darkMode,
       priority: taskData.priority,
       dueDate: taskData.dueDate,
       category: taskData.category,
+      userId: user,
     };
+    saveUserTask(newTask, user);
     setTasks(prev => [newTask, ...prev]);
     setIsFormOpen(false);
   };
 
   const updateTask = (id: string, updates: Partial<Task>) => {
-    setTasks(prev => prev.map(task => 
+    const updatedTasks = tasks.map(task => 
       task.id === id ? { ...task, ...updates } : task
-    ));
+    );
+    setTasks(updatedTasks);
+    const updatedTask = updatedTasks.find(t => t.id === id);
+    if (updatedTask) {
+      saveUserTask(updatedTask, user);
+    }
     setEditingTask(null);
   };
 
   const deleteTask = (id: string) => {
+    deleteUserTask(id, user);
     setTasks(prev => prev.filter(task => task.id !== id));
   };
 
   const toggleComplete = (id: string) => {
-    setTasks(prev => prev.map(task => 
+    const updatedTasks = tasks.map(task => 
       task.id === id ? { ...task, completed: !task.completed } : task
-    ));
+    );
+    setTasks(updatedTasks);
+    const toggledTask = updatedTasks.find(t => t.id === id);
+    if (toggledTask) {
+      saveUserTask(toggledTask, user);
+    }
   };
 
   const filteredTasks = tasks.filter(task => {

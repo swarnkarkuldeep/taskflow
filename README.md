@@ -23,7 +23,7 @@ TaskFlow is a modern, user-friendly personal task management application designe
 ---
 
 ## Live Demo
-Experience TaskFlow live: [https://taskflow-swarnkarkuldeep.vercel.app/](https://taskflow-swarnkarkuldeep.vercel.app/)
+Experience TaskFlow live: [https://taskflowkuldeep.netlify.app/](https://taskflowkuldeep.netlify.app/)
 
 ---
 
@@ -42,8 +42,17 @@ Experience TaskFlow live: [https://taskflow-swarnkarkuldeep.vercel.app/](https:/
 ## Screenshots
 Here's a glimpse of TaskFlow in action:
 
-<img src="https://github.com/swarnkarkuldeep/taskflow/assets/94178235/4e177b9f-0c46-4444-be1f-1335b1c9c7a7" alt="TaskFlow Screenshot 1" width="600"/>
-<img src="https://github.com/swarnkarkuldeep/taskflow/assets/94178235/f8a846c4-b778-4393-a5c9-94fc31f415c1" alt="TaskFlow Screenshot 2" width="600"/>
+### 1. Task List View
+<img src="/public/img/1.png" alt="Task List View" width="800"/>
+
+### 2. Adding a New Task
+<img src="/public/img/2.png" alt="Adding a New Task" width="800"/>
+
+### 3. Task Details
+<img src="/public/img/3.png" alt="Task Details" width="800"/>
+
+### 4. Dark Mode
+<img src="/public/img/4.png" alt="Dark Mode" width="800"/>
 
 ---
 

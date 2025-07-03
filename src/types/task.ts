@@ -8,6 +8,7 @@ export interface Task {
   priority: 'low' | 'medium' | 'high';
   dueDate?: string;
   category?: string;
+  userId: string; // Added to associate tasks with users
 }
 
 export type TaskFilter = 'all' | 'completed' | 'pending';
