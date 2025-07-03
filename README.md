@@ -1,52 +1,72 @@
-# Personal Task Tracker
+# TaskFlow
+
+---
 
 ## Description
-TaskFlow is a modern personal task management application built with React, TypeScript, and Tailwind CSS. It allows users to easily create, edit, delete, and track their tasks, helping them stay organized and productive.
+TaskFlow is a modern, user-friendly personal task management application designed to boost your productivity. Built with **React**, **TypeScript**, and **Tailwind CSS**, it offers a seamless experience for organizing and tracking your tasks, helping you stay on top of your to-do list.
+
+---
 
 ## Features
-- Add, edit, and delete tasks
-- Toggle task completion status
-- Filter tasks by: All, Completed, and Pending
-- Displays task count for each filter
-- Data persistence using localStorage
-- Responsive design
-- Dark mode toggle
-- Search functionality
-- Task priority levels
-- Due dates for tasks
-- Task categories/tags
+* **Effortless Task Management**: Easily add, edit, and delete tasks.
+* **Completion Tracking**: Toggle task completion status with a single click.
+* **Intelligent Filtering**: Quickly view tasks by "All," "Completed," or "Pending" status.
+* **Task Insights**: See a clear count of tasks for each filter category.
+* **Persistent Data**: Your tasks are saved locally using `localStorage` so you never lose your progress.
+* **Responsive Design**: Enjoy a consistent experience on any device.
+* **Dark Mode**: Switch to dark mode for a comfortable viewing experience.
+* **Search Functionality**: Quickly find specific tasks.
+* **Task Priority Levels**: Assign priority levels to your tasks to focus on what matters most.
+* **Due Dates**: Set due dates to keep track of deadlines.
+* **Categories/Tags**: Organize tasks with custom categories or tags.
 
-## Setup Instructions
-1. Clone the repository
-   ```bash
-git clone (https://github.com/swarnkarkuldeep/taskflow#)
-```
-2. Navigate to the project directory
-   ```bash
-cd <YOUR_PROJECT_NAME>
-```
-3. Install dependencies
-   ```bash
-npm install
-```
-4. Start the development server
-   ```bash
-npm run dev
-```
-5. Open [http://localhost:8080](http://localhost:8080) in your browser
-
-## Technologies Used
-- React.js
-- TypeScript
-- Vite
-- Shadcn-ui
-- Tailwind CSS
-- Lucide React
-- React Hook Form
-- Zod
+---
 
 ## Live Demo
-[Link to deployed application]
+Experience TaskFlow live: [https://taskflow-swarnkarkuldeep.vercel.app/](https://taskflow-swarnkarkuldeep.vercel.app/)
+
+---
+
+## Technologies Used
+* **React.js**: A powerful JavaScript library for building user interfaces.
+* **TypeScript**: Adds static typing to JavaScript, enhancing code quality.
+* **Vite**: A fast build tool for modern web projects.
+* **Shadcn-ui**: Reusable UI components.
+* **Tailwind CSS**: A utility-first CSS framework for rapid styling.
+* **Lucide React**: Beautiful, customizable open-source icons.
+* **React Hook Form**: A performant, flexible, and extensible form library.
+* **Zod**: A TypeScript-first schema declaration and validation library.
+
+---
 
 ## Screenshots
-[Include 1-2 screenshots of your app]
+Here's a glimpse of TaskFlow in action:
+
+<img src="https://github.com/swarnkarkuldeep/taskflow/assets/94178235/4e177b9f-0c46-4444-be1f-1335b1c9c7a7" alt="TaskFlow Screenshot 1" width="600"/>
+<img src="https://github.com/swarnkarkuldeep/taskflow/assets/94178235/f8a846c4-b778-4393-a5c9-94fc31f415c1" alt="TaskFlow Screenshot 2" width="600"/>
+
+---
+
+## Setup Instructions
+Follow these steps to get TaskFlow up and running on your local machine:
+
+1.  **Clone the repository**:
+    ```bash
+    git clone [https://github.com/swarnkarkuldeep/taskflow.git](https://github.com/swarnkarkuldeep/taskflow.git)
+    ```
+2.  **Navigate to the project directory**:
+    ```bash
+    cd taskflow
+    ```
+3.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+4.  **Start the development server**:
+    ```bash
+    npm run dev
+    ```
+5.  **Open in your browser**:
+    TaskFlow will be running at `http://localhost:8080`.
+
+---
