@@ -19,7 +19,7 @@ TaskFlow is a modern personal task management application built with React, Type
 ## Setup Instructions
 1. Clone the repository
    ```bash
-git clone <YOUR_GIT_URL>
+git clone (https://github.com/swarnkarkuldeep/taskflow#)
 ```
 2. Navigate to the project directory
    ```bash
