@@ -21,7 +21,7 @@ const TaskFilter: React.FC<TaskFilterProps> = ({ currentFilter, onFilterChange, 
   ];
 
   return (
-    <div className={`backdrop-blur-xl ${darkMode ? 'bg-white/10' : 'bg-white/30'} rounded-3xl shadow-xl p-3 inline-flex animate-fade-in border ${darkMode ? 'border-white/20' : 'border-white/40'} ${darkMode ? 'hover:bg-white/15' : 'hover:bg-white/40'} transition-all duration-300`}>
+    <div className={`backdrop-blur-xl ${darkMode ? 'bg-white/10' : 'bg-white/30'} rounded-3xl shadow-xl p-3 inline-flex animate-fade-in border gap-4 ${darkMode ? 'border-white/20' : 'border-white/40'} ${darkMode ? 'hover:bg-white/15' : 'hover:bg-white/40'} transition-all duration-300`}>
       {filters.map((filter) => (
         <button
           key={filter.key}
